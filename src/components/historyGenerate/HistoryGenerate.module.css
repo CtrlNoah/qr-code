@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.historyList {
+  width: 100%;
+  max-width: 400px;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.historyItem {
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.historyItem:hover {
+  background-color: #f0f8ff;
+}
+
+.noData {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .button {
+    background-color: #4caf50;
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #b51301;
+    transform: translateY(-3px);
+  }
+  
+  .button:active {
+    transform: translateY(1px);
+  }
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    max-width: 420px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .historyItem {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    max-width: 350px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .historyItem {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

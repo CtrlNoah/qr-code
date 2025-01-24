@@ -1,0 +1,46 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34; 
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .container a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 0 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .container a:hover {
+    background-color: #4caf50;
+    transform: translateY(-4px);
+  }
+  
+  .container a.active {
+    background-color: #81c784;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .container a {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+  }
+  
