@@ -35,11 +35,21 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.8s ease, transform 0.5s ease;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid teal;
+  font-size: 20px;
 }
 
 .historyItem:hover {
   background-color: #f0f8ff;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(-30px); 
 }
 
 .noData {
@@ -49,26 +59,52 @@
   margin-top: 20px;
 }
 
-  .button {
-    background-color: #4caf50;
-    color: white;
-    font-size: 18px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #b51301;
-    transform: translateY(-3px);
-  }
-  
-  .button:active {
-    transform: translateY(1px);
-  }
+.button {
+  background-color: #4caf50;
+  color: white;
+  font-size: 18px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.button:hover {
+  background-color: #b51301;
+  transform: translateY(-3px);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.buttonClearing {
+  background-color: #ff5c5c;
+  transform: scale(0.95);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buttonLoading {
+  background-color: #ff9800;
+  cursor: not-allowed; 
+  transform: scale(1); 
+}
+
+.loader {
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 @media (max-width: 768px) {
   .container {

@@ -5,12 +5,20 @@ import styles from './HistoryGenerate.module.css';
 
 export const HistoryGenerate = () => {
     const [localData, setLocalData] = useState(JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]'));
-    // const generateLocalData = JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]');
+    const [isClearing, setIsClearing] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleClickClearLocal = () => {
-        setLocalData('');
-        localStorage.clear();
-    }
+        setIsClearing(true);
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setLocalData([]);
+            localStorage.removeItem(GENERATE_DATA);
+            setIsClearing(false);
+            setIsLoading(false);
+        }, 1000);
+    };
 
     return (
         <div className={styles.container}>
@@ -19,17 +27,22 @@ export const HistoryGenerate = () => {
                 <>
                     <ul className={styles.historyList}>
                         {localData.map((data, index) => (
-                            <li key={index} className={styles.historyItem}>
+                            <li
+                                key={index}
+                                className={`${styles.historyItem} ${isClearing ? styles.fadeOut : ''}`}
+                            >
                                 {data}
                                 <QRCodeSVG value={data} size={200} />
                             </li>
                         ))}
                     </ul>
+                    {isLoading && <div className={styles.loader}></div>}
                     <button
                         onClick={handleClickClearLocal}
-                        className={styles.button}
+                        className={`${styles.button} ${isClearing ? styles.buttonClearing : ''} ${isLoading ? styles.buttonLoading : ''}`}
+                        disabled={isLoading}
                     >
-                        Очистить историю
+                        {isLoading ? 'Очищаю...' : 'Очистить историю'}
                     </button>
                 </>
             ) : (
